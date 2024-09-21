@@ -1,47 +1,33 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 1000,
-    "data": {
-      "url": "https://raw.githubusercontent.com/Eashvaren/Malaysia-Topojson/refs/heads/main/mys_state.json",  
-      "format": {
-        "type": "topojson",
-        "feature": "districts"  
-      }
-    },
-    "transform": [
-      {
-        "lookup": "properties.district_code",  
-        "from": {
-          "data": {
-            "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv"  
-          },
-          "key": "STATE", 
-          "fields": ["FLOOD", "ANNUAL RAINFALL"]  
-        }
-      }
-    ],
-    "projection": {
-      "type": "mercator"
-    },
-    "mark": "geoshape",
-    "encoding": {
-      "color": {
-        "field": "FLOOD",
-        "type": "quantitative",
-        "scale": {
-          "domain": [0, 1],
-          "range": ["#ffffff", "#ff0000"]  
-        },
-        "legend": {
-          "title": "Flood Occurrence"
-        }
-      },
-      "tooltip": [
-        {"field": "properties.district_name", "title": "District"},  
-        {"field": "FLOOD", "title": "Flood Occurrence"},
-        {"field": "ANNUAL RAINFALL", "title": "Annual Rainfall"}
-      ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 1000,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "states"
     }
+  },
+  "transform": [
+    {
+      "lookup": "properties.Name",  
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv"
+        },
+        "key": "STATE", 
+        "fields": ["FLOOD", "ANNUAL RAINFALL"]
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "mark": "geoshape",
+  "encoding": {
+    "tooltip": [
+      {"field": "properties.Name", "title": "State"}
+    ]
   }
-  
+}
