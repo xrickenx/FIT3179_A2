@@ -11,7 +11,7 @@
   },
   "transform": [
     {
-      "lookup": "properties.Name",  
+      "lookup": "properties.NAME",  
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv"

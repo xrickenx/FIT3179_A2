@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total rainfall in Malaysia 2010",
+    "width": 1000,
+    "height": 1000,
+    "projection": {"type": "equalEarth"},
+    "data": {
+      "url": "https://raw.githubusercontent.com/jnewbery/CartogramMalaysia/refs/heads/master/public/data/malaysia-states.topojson",
+      "format": {
+        "type": "topojson",
+        "feature": "states"
+      }
+    },
+    "transform": [
+      {
+        "lookup": "properties.Name",  
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv"
+          },
+          "key": "STATE", 
+          "fields": ["ANNUAL RAINFALL"]
+        }
+      }
+    ],
+    "mark": {"type": "geoshape"},
+    "encoding": {
+      "color": {
+        "field": "FLOOD",
+        "type": "quantitative",
+        "scale": {"type": "log"},
+        "legend": {
+          "title": "Flood Occurrence"
+        }
+      },
+      "tooltip": [
+        {"field": "properties.Name", "title": "State"},
+        {"field": "ANNUAL RAINFALL", "title": "Annual Rainfall (mm)"}
+      ]
+    }
+  }
+  
