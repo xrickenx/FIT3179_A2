@@ -1,9 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 600,
+    "width": 1000,
+    "height": 1000,
     "data": {
-      "url": "https://github.com/Eashvaren/Malaysia-Topojson/blob/main/mys_state.json",  
+      "url": "https://raw.githubusercontent.com/Eashvaren/Malaysia-Topojson/refs/heads/main/mys_state.json",  
       "format": {
         "type": "topojson",
         "feature": "districts"  
@@ -14,9 +14,9 @@
         "lookup": "properties.district_code",  
         "from": {
           "data": {
-            "url": "_Malaysia+Flood+Dataset_Malaysia+Flood+Dataset.csv"  
+            "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv"  
           },
-          "key": "DISTRICT", 
+          "key": "STATE", 
           "fields": ["FLOOD", "ANNUAL RAINFALL"]  
         }
       }
