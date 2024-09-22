@@ -33,7 +33,7 @@
       "type": "quantitative",
       "scale": {
         "range": ["#d4f0ff", "#00509e"],
-        "domain": [2000, 4000]
+        "domain": [0, 1]
       },
       "legend": {
         "title": "Annual Rainfall (mm)"
