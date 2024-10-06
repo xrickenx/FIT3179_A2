@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script> 
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script> 
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 <script src="vega_lite_vis.js"></script>
 <title>Annual rainfall in Malaysia in 2010 by state</title>
@@ -18,7 +18,7 @@
   }
 
   /* Optionally, you can center the entire map container */
-  #bar_chart {
+  .chart {
     display: flex;
     justify-content: center;
   }
@@ -26,8 +26,11 @@
 
 </head>
 <body>
-<h1>A choropleth map representing annual rainfall in Malaysia in the year 2010</h1> 
-<div id="bar_chart">
+<h1>A choropleth map representing annual rainfall in Malaysia in the year 2010</h1>
+<div id="map_chart" class="chart">
+</div>
+<h1>An area stacked chart representing annual rainfall in Malaysia from 2000 to 2010</h1>
+<div id="area_chart" class="chart">
 </div>
 </body>
 </html>

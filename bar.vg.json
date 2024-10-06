@@ -1,0 +1,136 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+        "text": "Annual Rainfall Distribution Across Malaysian States (2000 - 2010)",
+        "fontSize": 18,
+        "anchor": "middle"
+    },
+    "width": 1250,
+    "height": 500,
+    "data": {
+        "url": "https://gist.githubusercontent.com/yenwei12/6b205f0380850ec1155345e8690b313d/raw/04350315c35aba9e3077dee68259d25e9f1f9d47/Malaysia_Annual_Rainfall_By_States.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "layer": [
+        {
+            "mark": "area",
+            "params": [
+                {
+                    "name": "stateHighlight",
+                    "select": {
+                        "type": "point",
+                        "fields": [
+                            "STATE_NAME"
+                        ]
+                    },
+                    "bind": "legend"
+                }
+            ],
+            "encoding": {
+                "x": {
+                    "field": "YEAR",
+                    "timeUnit": "year",
+                    "axis": {
+                        "title": "Year",
+                        "domain": false
+                    }
+                },
+                "y": {
+                    "field": "ANNUAL RAINFALL",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Annual Rainfall (mm)"
+                    }
+                },
+                "color": {
+                    "field": "STATE_NAME",
+                    "type": "nominal",
+                    "legend": {
+                        "title": "State"
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "stateHighlight",
+                        "value": 1
+                    },
+                    "value": 0.1
+                },
+                "tooltip": [
+                    {
+                        "field": "YEAR",
+                        "timeUnit": "year",
+                        "type": "quantitative",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "ANNUAL RAINFALL",
+                        "type": "quantitative",
+                        "title": "Rainfall (mm)"
+                    },
+                    {
+                        "field": "STATE_NAME",
+                        "type": "nominal",
+                        "title": "State"
+                    }
+                ]
+            }
+        },
+        {
+            "transform": [
+                {
+                    "aggregate": [
+                        {
+                            "op": "mean",
+                            "field": "ANNUAL RAINFALL",
+                            "as": "mean_rainfall"
+                        }
+                    ]
+                }
+            ],
+            "mark": "rule",
+            "encoding": {
+                "y": {
+                    "field": "mean_rainfall",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "value": "green"
+                },
+                "size": {
+                    "value": 2
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 5,
+                "dy": -10
+            },
+            "encoding": {
+                "x": {
+                    "datum": 2000,
+                    "type": "quantitative"
+                },
+
+                "y": {
+                    "datum": 3000,
+                    "type": "quantitative"
+                },
+                "text": {
+                    "value": "Mean Rainfall"
+                },
+                "color": {
+                    "value": "green"
+                },
+                "fontSize": {
+                    "value": 12
+                }
+            }
+        }
+    ]
+}
