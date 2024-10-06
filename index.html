@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-<script src="vega_lite_vis.js"></script>
-<title>Annual rainfall in Malaysia in 2010 by state</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+        <script src="vega_lite_vis.js"></script>
+        <title>Annual rainfall in Malaysia in 2010 by state</title>
+        <style>
+            h1,
+            p {
+                text-align: center;
+                font-family: Arial, sans-serif;
+            }
 
-<!-- Centering the h1 element -->
-<style>
-  h1 {
-    text-align: center;
-    font-family: Arial, sans-serif;
-  }
+            .chart {
+                display: flex;
+                justify-content: center;
+            }
 
-  /* Optionally, you can center the entire map container */
-  .chart {
-    display: flex;
-    justify-content: center;
-  }
-</style>
+            .hint {
+                font-size: 16px;
+                color: #555;
+                margin-top: -10px;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>A choropleth map representing annual rainfall in Malaysia in the year 2010</h1>
+        <div class="chart-container">
+            <div style="width: 100%" id="map_chart" class="chart"></div>
+        </div>
 
-</head>
-<body>
-<h1>A choropleth map representing annual rainfall in Malaysia in the year 2010</h1>
-<div id="map_chart" class="chart">
-</div>
-<h1>An area stacked chart representing annual rainfall in Malaysia from 2000 to 2010</h1>
-<div id="area_chart" class="chart">
-</div>
-</body>
+        <h1>An area chart representing annual rainfall in Malaysia (2000 - 2010)</h1>
+        <p class="hint">✨ Tip: Click on any state in the legend to highlight its rainfall trend</p>
+        <div class="chart-container">
+            <div style="width: 100%" id="area_chart" class="chart"></div>
+        </div>
+    </body>
 </html>
