@@ -8,7 +8,7 @@
     "width": 1250,
     "height": 500,
     "data": {
-        "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/_Malaysia%2BFlood%2BDataset_Malaysia%2BFlood%2BDataset.csv",
+        "url": "https://raw.githubusercontent.com/xrickenx/FIT3179_A2/refs/heads/main/data/annual_rainfall_by_states.csv",
         "format": {
             "type": "csv"
         }
